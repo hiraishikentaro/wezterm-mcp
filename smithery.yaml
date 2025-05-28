@@ -1,0 +1,12 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - nodeVersion
+    properties:
+      nodeVersion:
+        type: string
+        description: Ensure Node version 18 or greater is installed.
+  commandFunction: |-
+    (config) => ({ command: 'node', args: ['build/index.js'], env: {} })
