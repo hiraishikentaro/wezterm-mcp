@@ -5,9 +5,9 @@ import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
-import WeztermExecutor from "./wezterm_executor";
-import WeztermOutputReader from "./wezterm_output_reader";
-import SendControlCharacter from "./send_control_character";
+import WeztermExecutor from "./wezterm_executor.js";
+import WeztermOutputReader from "./wezterm_output_reader.js";
+import SendControlCharacter from "./send_control_character.js";
 
 const server = new Server(
   {
