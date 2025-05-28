@@ -1,0 +1,24 @@
+{
+  "name": "wezterm-mcp",
+  "version": "0.1.0",
+  "description": "mcp server for wezterm ",
+  "main": "index.js",
+  "bin": {
+    "wezterm-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x build/index.js",
+    "watch": "tsc --watch",
+    "prepare": "npm run build",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js",
+    "test": "node test/test.js"
+  },
+  "author": "hir4ken",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.23"
+  }
+}
