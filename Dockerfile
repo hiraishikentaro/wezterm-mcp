@@ -5,21 +5,23 @@
 FROM node:lts-alpine AS builder
 WORKDIR /app
 
-# Install dependencies and TypeScript compiler
+# Copy package files and source code first
 COPY package.json package-lock.json tsconfig.json ./
+COPY src ./src
+
+# Install dependencies and TypeScript compiler
 RUN npm install
 
-# Copy source and compile
-COPY src ./src
+# Build the project
 RUN npm run build
 
 # Final stage
 FROM node:lts-alpine
 WORKDIR /app
 
-# Install only production dependencies
+# Install only production dependencies without running scripts
 COPY package.json package-lock.json ./
-RUN npm install --production
+RUN npm install --omit=dev --ignore-scripts
 
 # Copy compiled code
 COPY --from=builder /app/build ./build
