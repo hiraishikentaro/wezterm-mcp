@@ -1,12 +1,13 @@
 startCommand:
   type: stdio
   configSchema:
+    # JSON Schema defining the configuration options for the MCP.
     type: object
-    required:
-      - nodeVersion
-    properties:
-      nodeVersion:
-        type: string
-        description: Ensure Node version 18 or greater is installed.
-  commandFunction: |-
-    (config) => ({ command: 'node', args: ['build/index.js'], env: {} })
+    required: []
+    properties: {}
+    description: Empty configuration
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'node', args: ['build/index.js'] })
+  exampleConfig: {}
